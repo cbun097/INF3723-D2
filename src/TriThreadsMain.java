@@ -1,10 +1,12 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 class TriThreadsMain {
     public static Integer[] ListOr;
-    public static Thread[] ThreadList;
+    public static SortThread[] ThreadList;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         String demandeUtilisateur = "Entrer votre choix pour la liste des nombres entiers" +"\n" +
                 "Entrer 1 pour entrés directe des valeurs entiers." + "\n" +
@@ -28,11 +30,40 @@ class TriThreadsMain {
         System.out.println("Combien de Thread voulez-vous?");
         int NLIST = Integer.parseInt(scanner.nextLine());
 
+        //trouve comment diviser la liste
+        int count = ListOr.length/NLIST;
+        System.out.println("there will be " + count + " per list");
+
+        ThreadList = new SortThread[NLIST];
+
+        //créer des thread
         for(int i = 0; i<NLIST; i++)
         {
-            ThreadList[i] = new Thread("thread" + i);
+            if(i != NLIST-1) {
+                //si pas la derniere
+                ThreadList[i] = new SortThread("thread" + i, Arrays.copyOfRange(ListOr, i * count, (i + 1) * count));
+            }
+            else
+            {
+                //si la derniere (pour ne pas oublier certain ex : 100/3 == 33)
+                ThreadList[i] = new SortThread("thread" + i, Arrays.copyOfRange(ListOr, i*count, (ListOr.length)));
+            }
             ThreadList[i].start();
         }
+
+        //attend que tout les thread finissent
+        for(int i = 0; i<NLIST; i++) {
+            ThreadList[i].join();
+        }
+        System.out.println("sorting complete");
+
+        //met toutes les list ensemble pour etre mis ensemble
+        Integer[][] GroupedList = new Integer[NLIST][];
+        for(int i = 0; i<NLIST; i++) {
+            GroupedList[i] = ThreadList[i].getArray();
+        }
+        MergeThread mergeThread = new MergeThread(GroupedList);
+        mergeThread.start();
 
 
     }
