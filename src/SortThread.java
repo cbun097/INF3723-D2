@@ -39,18 +39,9 @@ public class SortThread extends java.lang.Thread {
     }
 
     @Override
-    public String toString() {
-        return "Thread{" +
-                "nom='" + nom + '\'' +
-                '}';
-    }
-
-    @Override
     public void run() {
         super.run();
         long starttime= System.nanoTime()/1000000;
-        System.out.println(currentThread() + " is running");
-        System.out.println(getNom() + " is running");
         selectionSort(array);
         //affiche la liste organiser
         for(int i = 0; i<array.length;i++)

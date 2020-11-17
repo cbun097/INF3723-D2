@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-
 public class MergeThread extends java.lang.Thread{
 
     Integer[][] ListOfArray;
