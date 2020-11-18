@@ -26,6 +26,8 @@ class TriThreadsMain {
             listOr = RessourcesMethodes.CreateList(scanner.nextInt());
         }
 
+        RessourcesMethodes.ShowList(listOr);
+
         System.out.println("Combien de sub list voulez-vous?");
         int NLIST = scanner.nextInt();
 
@@ -33,7 +35,6 @@ class TriThreadsMain {
         int count = listOr.length / NLIST;
         //System.out.println("there will be " + count + " per list");
 
-        RessourcesMethodes.ShowList(listOr);
         threadList = new SortThread[NLIST];
 
         //créer des threads
