@@ -25,20 +25,18 @@ class TriThreadsMain {
             System.out.println("Quelle taille de liste voulez-vous?");
             listOr = RessourcesMethodes.CreateList(scanner.nextInt());
         }
-        RessourcesMethodes.printTwoParts(listOr, listOr.length);
-        //System.out.println("Combien de Thread voulez-vous?");
-        // int NLIST = Integer.parseInt(scanner.nextLine());
-        // TODO Fix the sub-list
-        int NLIST = 2;
-        //int NList = RessourcesMethodes.printTwoParts(listOr, listOr.length);
-        //2System.out.println(NList);
+
+        System.out.println("Combien de sub list voulez-vous?");
+        int NLIST = scanner.nextInt();
+
         //trouve comment diviser la liste
         int count = listOr.length / NLIST;
-        System.out.println("there will be " + count + " per list");
+        //System.out.println("there will be " + count + " per list");
 
+        RessourcesMethodes.ShowList(listOr);
         threadList = new SortThread[NLIST];
 
-        //créer des thread
+        //créer des threads
         for (int i = 0; i < NLIST; i++) {
             if (i != NLIST - 1) {
                 //si pas la derniere
@@ -50,7 +48,7 @@ class TriThreadsMain {
             threadList[i].start();
         }
 
-        //attend que tout les thread finissent
+        //attend que tout les threads finissent
         for (int i = 0; i < NLIST; i++) {
             threadList[i].join();
         }
@@ -61,8 +59,6 @@ class TriThreadsMain {
             GroupedList[i] = threadList[i].getArray();
         }
         mergeThread = new MergeThread(GroupedList);
-        System.out.println("Merge: " + mergeThread);
         mergeThread.start();
     }
-    // TODO: faire des methodes pour l'affichage demandé à la fin par le prof
 }

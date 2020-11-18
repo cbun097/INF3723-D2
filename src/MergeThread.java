@@ -25,7 +25,7 @@ public class MergeThread extends java.lang.Thread{
         //affiche le resultat
         for (int i = 0; i<Temp.length; i++)
         {
-            System.out.print(Temp[i] + " ");
+            System.out.print("[" + Temp[i] + "]");
         }
         long endtime = System.nanoTime()/1000000;
         System.out.println(String.format("%s %,d", "\nmerge complete in milliseconds:  "  ,  endtime-starttime));
@@ -61,7 +61,6 @@ public class MergeThread extends java.lang.Thread{
                 l++;
             }
         }
-
         return TempArray;
     }
 }
