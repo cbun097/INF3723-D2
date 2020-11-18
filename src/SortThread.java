@@ -1,9 +1,9 @@
 public class SortThread extends java.lang.Thread {
 
-    Integer[] array;
+    int[] array;
     String nom;
 
-    public SortThread(String nom, Integer[] array) {
+    public SortThread(String nom, int[] array) {
         this.nom = nom;
         this.array = array;
     }
@@ -17,12 +17,12 @@ public class SortThread extends java.lang.Thread {
     }
 
     //retourne la valeur de l'array organizer
-    public Integer[] getArray() {
+    public int[] getArray() {
         return this.array;
     }
 
     //code du prof
-    void selectionSort(Integer[] a) {
+    void selectionSort(int[] a) {
         for (int i = 0; i < a.length - 1; i++) {
             int min = i;
             for (int j = i + 1; j < a.length; j++) {
