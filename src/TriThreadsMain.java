@@ -20,11 +20,14 @@ class TriThreadsMain {
             System.out.println("Veuillez écrire les chiffres que vous voulez organizer et séparer par des virgules");
             listOr = RessourcesMethodes.ParseList(scanner.nextLine());
         }
-
         if (choix.equals("2")) {
             System.out.println("Quelle taille de liste voulez-vous?");
             listOr = RessourcesMethodes.CreateList(scanner.nextInt());
         }
+
+        RessourcesMethodes.ShowList(listOr);
+
+
         RessourcesMethodes.printTwoParts(listOr, listOr.length);
         //System.out.println("Combien de Thread voulez-vous?");
         // int NLIST = Integer.parseInt(scanner.nextLine());

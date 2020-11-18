@@ -43,11 +43,6 @@ public class SortThread extends java.lang.Thread {
         super.run();
         long starttime= System.nanoTime()/1000000;
         selectionSort(array);
-        //affiche la liste organiser
-        for(int i = 0; i<array.length;i++)
-        {
-            System.out.println(getNom() + " : " + array[i]);
-        }
         long endtime = System.nanoTime()/1000000;
         System.out.println(String.format("Sort time for %s : %d", getNom()  ,  endtime-starttime));
     }

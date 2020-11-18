@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class RessourcesMethodes {
 
     public static int[] ParseList(String list)
@@ -85,9 +87,46 @@ public class RessourcesMethodes {
             if (splitPoint == i)
                 System.out.println();
 
-            System.out.println("[ " + arr[i] + " ]");
+
+            //System.out.println("[ " + arr[i] + " ]");
             result[i] = arr[i];
         }
         return result;
+    }
+
+    public static void ShowList(int[] listOr)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Voulez vous voir les premiere 100 entré de la liste? (y/n) :");
+        String choix = scanner.nextLine();
+        if (choix.equals("y")) {
+            try {
+                for (int i = 0; i < 100; i++) {
+                    if (i != 99)
+                        System.out.print(listOr[i] + ", ");
+                    else
+                        System.out.println(listOr[i]);
+                }
+                int counteur = 1;
+                while (true) {
+                    System.out.println("Voulez vous voir les prochaines 100 entré? (y/n) :");
+                    choix = scanner.nextLine();
+                    if (choix.equals("y")) {
+
+                        for (int i = counteur * 100; i < ((counteur + 1) * 100); i++) {
+                            if (i != 99)
+                                System.out.print(listOr[i] + ", ");
+                            else
+                                System.out.println(listOr[i]);
+                        }
+
+                    } else break;
+                }
+            }
+            catch (ArrayIndexOutOfBoundsException | NullPointerException e)
+            {
+                System.out.println("\nil n'y a plus d'entrer dans la liste");
+            }
+        }
     }
 }
