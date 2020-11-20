@@ -52,6 +52,7 @@ class TriThreadsMain {
         //attend que tout les threads finissent
         for (int i = 0; i < NLIST; i++) {
             threadList[i].join();
+            threadList[i].ShowSpecialFormatArray();
         }
 
         //met toutes les list ensemble pour etre mis ensemble

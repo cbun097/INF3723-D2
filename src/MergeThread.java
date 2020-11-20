@@ -23,6 +23,7 @@ public class MergeThread extends java.lang.Thread{
             Temp = MergeAlgo(Temp, ListOfArray[i]);
         }
         //affiche le resultat
+        System.out.print("merged list : ");
         for (int i = 0; i<Temp.length; i++)
         {
             System.out.print("[" + Temp[i] + "]");

@@ -38,6 +38,32 @@ public class SortThread extends java.lang.Thread {
         }
     }
 
+    public void ShowSpecialFormatArray()
+    {
+        System.out.print(this.nom + " : ");
+        if(this.array.length < 100)
+        {
+            try {
+                for(int i = 0; i< 100; i++) {
+                    System.out.print("[" + this.array[i] + "]");
+                }
+            }
+            catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+            }
+        }
+        else
+        {
+            for(int i = 0; i< 50; i++) {
+                System.out.print("[" + this.array[i] + "]");
+            }
+            for(int i = this.array.length -1; i< 50; i--) {
+                System.out.print("[" + this.array[i] + "]");
+            }
+        }
+        System.out.println();
+
+    }
+
     @Override
     public void run() {
         super.run();
