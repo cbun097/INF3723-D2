@@ -32,7 +32,10 @@ public class MergeThread extends java.lang.Thread{
         }
         long endtime = System.nanoTime()/1000000;
         long result = endtime - starttime;
-        System.out.println(String.format("%s %,d", "\nmerge complete in milliseconds:  "  ,  result < 1 ? TimeUnit.NANOSECONDS.toMillis(result) : result));
+        if(result > 1000000)
+            System.out.println("\nmerge est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
+        else
+            System.out.println("\nmerge est complété en nanoseconde:  " + result);
     }
 
     public int[] MergeAlgo(int[] Right, int[] Left)

@@ -69,10 +69,13 @@ public class SortThread extends java.lang.Thread {
     @Override
     public void run() {
         super.run();
-        long startTime= System.nanoTime()/1000000;
+        long startTime= System.nanoTime();
         selectionSort(array);
-        long endTime = System.nanoTime()/1000000;
+        long endTime = System.nanoTime();
         long result = endTime - startTime;
-        System.out.println(String.format("Sort time for %s : %d", getNom()  , result < 1 ? TimeUnit.NANOSECONDS.toMillis(result) : result));
+        if(result > 1000000)
+            System.out.println("\nSort est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
+        else
+            System.out.println("\nSort est complété en nanoseconde:  " + result);
     }
 }

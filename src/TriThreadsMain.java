@@ -31,7 +31,7 @@ class TriThreadsMain {
 
         System.out.println("Combien de sub list voulez-vous?");
         int NLIST = scanner.nextInt();
-        long starttime= System.nanoTime()/1000000;
+        long starttime= System.nanoTime();
         //trouve comment diviser la liste
         int count = listOr.length / NLIST;
         //System.out.println("there will be " + count + " per list");
@@ -75,8 +75,11 @@ class TriThreadsMain {
                 System.out.print("[" + threadList[0].getArray()[i] + "]");
             }
         }
-        long endtime = System.nanoTime()/1000000;
+        long endtime = System.nanoTime();
         long result = endtime - starttime;
-        System.out.println(String.format("%s %,d", "\nLe programmes est complété en milliseconds:  "  ,  result < 1 ? TimeUnit.NANOSECONDS.toMillis(result) : result));
+        if(result > 1000000)
+            System.out.println("\nLe programmes est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
+        else
+            System.out.println("\nLe programmes est complété en nanoseconde:  " + result);
     }
 }
