@@ -30,7 +30,7 @@ class TriThreadsMain {
 
         System.out.println("Combien de sub list voulez-vous?");
         int NLIST = scanner.nextInt();
-
+        long starttime= System.nanoTime()/1000000;
         //trouve comment diviser la liste
         int count = listOr.length / NLIST;
         //System.out.println("there will be " + count + " per list");
@@ -55,12 +55,26 @@ class TriThreadsMain {
             threadList[i].ShowSpecialFormatArray();
         }
 
-        //met toutes les list ensemble pour etre mis ensemble
-        int[][] GroupedList = new int[NLIST][];
-        for (int i = 0; i < NLIST; i++) {
-            GroupedList[i] = threadList[i].getArray();
+        if(NLIST != 1) {
+            //met toutes les list ensemble pour etre mis ensemble
+            int[][] GroupedList = new int[NLIST][];
+            for (int i = 0; i < NLIST; i++) {
+                GroupedList[i] = threadList[i].getArray();
+            }
+
+            mergeThread = new MergeThread(GroupedList);
+            mergeThread.start();
+            mergeThread.wait();
         }
-        mergeThread = new MergeThread(GroupedList);
-        mergeThread.start();
+        else
+        {
+            System.out.println("avec un seul thread, il n'est pas possible de faire un merge, fin de la tache.");
+            for(int i = 0; i<threadList[0].getArray().length; i++)
+            {
+                System.out.print("[" + threadList[0].getArray()[i] + "]");
+            }
+        }
+        long endtime = System.nanoTime()/1000000;
+        System.out.println(String.format("%s %,d", "\nprogram time complete in milliseconds:  "  ,  endtime-starttime));
     }
 }
