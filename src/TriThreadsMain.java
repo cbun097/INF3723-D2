@@ -64,7 +64,7 @@ class TriThreadsMain {
 
             mergeThread = new MergeThread(GroupedList);
             mergeThread.start();
-            mergeThread.wait();
+            mergeThread.join();
         }
         else
         {
