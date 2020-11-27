@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class MergeThread extends java.lang.Thread{
 
     int[][] ListOfArray;
@@ -29,7 +31,8 @@ public class MergeThread extends java.lang.Thread{
             System.out.print("[" + Temp[i] + "]");
         }
         long endtime = System.nanoTime()/1000000;
-        System.out.println(String.format("%s %,d", "\nmerge complete in milliseconds:  "  ,  endtime-starttime));
+        long result = endtime - starttime;
+        System.out.println(String.format("%s %,d", "\nmerge complete in milliseconds:  "  ,  result < 1 ? TimeUnit.NANOSECONDS.toMillis(result) : result));
     }
 
     public int[] MergeAlgo(int[] Right, int[] Left)

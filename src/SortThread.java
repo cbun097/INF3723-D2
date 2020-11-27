@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class SortThread extends java.lang.Thread {
 
     int[] array;
@@ -70,6 +72,7 @@ public class SortThread extends java.lang.Thread {
         long startTime= System.nanoTime()/1000000;
         selectionSort(array);
         long endTime = System.nanoTime()/1000000;
-        System.out.println(String.format("Sort time for %s : %d", getNom()  ,  endTime-startTime));
+        long result = endTime - startTime;
+        System.out.println(String.format("Sort time for %s : %d", getNom()  , result < 1 ? TimeUnit.NANOSECONDS.toMillis(result) : result));
     }
 }

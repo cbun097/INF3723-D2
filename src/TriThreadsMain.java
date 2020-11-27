@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 class TriThreadsMain {
     public static int[] listOr;
@@ -75,6 +76,7 @@ class TriThreadsMain {
             }
         }
         long endtime = System.nanoTime()/1000000;
-        System.out.println(String.format("%s %,d", "\nprogram time complete in milliseconds:  "  ,  endtime-starttime));
+        long result = endtime - starttime;
+        System.out.println(String.format("%s %,d", "\nLe programmes est complété en milliseconds:  "  ,  result < 1 ? TimeUnit.NANOSECONDS.toMillis(result) : result));
     }
 }
