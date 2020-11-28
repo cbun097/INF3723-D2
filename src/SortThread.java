@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 
 public class SortThread extends java.lang.Thread {
@@ -75,7 +76,8 @@ public class SortThread extends java.lang.Thread {
         long result = endTime - startTime;
         if(result > 1000000)
             System.out.println("\nSort est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
-        else
-            System.out.println("\nSort est complété en nanoseconde:  " + result);
+        else{
+            System.out.println("Sort est complété en nanosecond: " + String.format("%.5f", ((double) result)/10000000));
+        }
     }
 }

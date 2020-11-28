@@ -80,6 +80,6 @@ class TriThreadsMain {
         if(result > 1000000)
             System.out.println("\nLe programmes est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
         else
-            System.out.println("\nLe programmes est complété en nanoseconde:  " + result);
+            System.out.println("\nLe programmes est complété en nanoseconde:  " + String.format("%.5f",((double) result)/10000000));
     }
 }

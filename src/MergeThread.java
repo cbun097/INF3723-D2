@@ -16,7 +16,7 @@ public class MergeThread extends java.lang.Thread{
 
     @Override
     public void run() {
-        long starttime= System.nanoTime()/1000000;
+        long starttime= System.nanoTime();
         //fait un merge avec les deux premier array
         int[] Temp = MergeAlgo(ListOfArray[0], ListOfArray[1]);
         //merge le resultat avec le reste
@@ -30,12 +30,12 @@ public class MergeThread extends java.lang.Thread{
         {
             System.out.print("[" + Temp[i] + "]");
         }
-        long endtime = System.nanoTime()/1000000;
+        long endtime = System.nanoTime();
         long result = endtime - starttime;
         if(result > 1000000)
             System.out.println("\nmerge est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
         else
-            System.out.println("\nmerge est complété en nanoseconde:  " + result);
+            System.out.println("\nmerge est complété en nanoseconde:  " + String.format("%.5f", ((double) result)/10000000));
     }
 
     public int[] MergeAlgo(int[] Right, int[] Left)
