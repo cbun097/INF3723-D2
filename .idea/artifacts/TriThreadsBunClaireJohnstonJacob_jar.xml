@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="INF-D2:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/INF_D2_jar</output-path>
+  <artifact type="jar" name="TriThreadsBunClaireJohnstonJacob:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TriThreadsBunClaireJohnstonJacob_jar</output-path>
     <root id="archive" name="INF-D2.jar">
       <element id="module-output" name="INF-D2" />
     </root>
