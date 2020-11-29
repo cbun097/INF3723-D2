@@ -11,7 +11,7 @@ class TriThreadsMain {
         Scanner scanner = new Scanner(System.in);
         String demandeUtilisateur = "Entrer votre choix pour la liste des nombres entiers" + "\n" +
                 "Entrer 1 pour entrée directe des valeurs entiers." + "\n" +
-                "Entrer 2 pour entreé la taille de la liste et le programme va la crée.";
+                "Entrer 2 pour entrée la taille de la liste et le programme va la crée.";
 
         // Demander à l'utilisateur son mode d'entre
         System.out.println(demandeUtilisateur);
