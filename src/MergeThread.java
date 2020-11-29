@@ -35,7 +35,7 @@ public class MergeThread extends java.lang.Thread{
         if(result > 1000000)
             System.out.println("\nmerge est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
         else
-            System.out.println("\nmerge est complété en nanoseconde:  " + String.format("%.5f", ((double) result)/10000000));
+            System.out.println("\nmerge est complété en milliseconds:  " + String.format("%.5f", ((double) result)/10000000));
     }
 
     public int[] MergeAlgo(int[] Right, int[] Left)

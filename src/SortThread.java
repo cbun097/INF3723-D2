@@ -75,9 +75,9 @@ public class SortThread extends java.lang.Thread {
         long endTime = System.nanoTime();
         long result = endTime - startTime;
         if(result > 1000000)
-            System.out.println("\nSort est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
+            System.out.println("\nSort du " + getNom() + " est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
         else{
-            System.out.println("Sort est complété en nanosecond: " + String.format("%.5f", ((double) result)/10000000));
+            System.out.println("Sort du " + getNom() + " est complété en milliseconds: " + String.format("%.5f", ((double) result)/10000000));
         }
     }
 }
