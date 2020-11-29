@@ -23,7 +23,6 @@ public class SortThread extends java.lang.Thread {
         return this.array;
     }
 
-    // Code du prof
     void selectionSort(int[] a) {
         for (int i = 0; i < a.length - 1; i++) {
             int min = i;
@@ -74,9 +73,9 @@ public class SortThread extends java.lang.Thread {
         long endTime = System.nanoTime();
         long result = endTime - startTime;
         if(result > 1000000)
-            System.out.println("\nTemps de tri " + getNom() + " est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
+            System.out.println("\nTemps de tri " + getNom() + " est complété en millisecondes:  " + TimeUnit.NANOSECONDS.toMillis(result));
         else{
-            System.out.println("\nTemps de tri " + getNom() + " est complété en milliseconds: " + String.format("%.5f", ((double) result)/10000000));
+            System.out.println("\nTemps de tri " + getNom() + " est complété en millisecondes: " + String.format("%.5f", ((double) result)/10000000));
         }
     }
 }

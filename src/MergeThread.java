@@ -17,7 +17,7 @@ public class MergeThread extends java.lang.Thread{
     @Override
     public void run() {
         long starttime= System.nanoTime();
-        //fait une fusion avec les deux premier array
+        // fait une fusion avec les deux premières listes
         int[] Temp = MergeAlgo(ListOfArray[0], ListOfArray[1]);
         //merge le resultat avec le reste
         for(int i = 2; i< ListOfArray.length; i++)
@@ -48,7 +48,7 @@ public class MergeThread extends java.lang.Thread{
             tempRight[i] = Right[i];
         for(int i = 0; i<Left.length; i++)
             tempLeft[i] = Left[i];
-        //met l'infinit à la derniere position
+        //met l'infinit à la dernière position
         tempRight[Right.length] = 2147483647;
         tempLeft[Left.length] = 2147483647;
 

@@ -48,7 +48,7 @@ public class RessourcesMethodes {
     public static void ShowList(int[] listOr)
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Voulez-vous voir les premieres 100 entrées de la liste? (y/n) :");
+        System.out.println("Voulez-vous voir les premières 100 entrées de la liste? (y/n) :");
         String choix = scanner.nextLine();
         if (choix.equals("y")) {
             try {
@@ -76,7 +76,7 @@ public class RessourcesMethodes {
             }
             catch (ArrayIndexOutOfBoundsException | NullPointerException e)
             {
-                System.out.println("\nIl n'y a plus d'entrées dans la liste");
+                System.out.println("\nIl n'y a plus d'entrée dans la liste");
             }
         }
     }
