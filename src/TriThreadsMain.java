@@ -13,28 +13,27 @@ class TriThreadsMain {
                 "Entrer 1 pour entrée directe des valeurs entiers." + "\n" +
                 "Entrer 2 pour entreé la taille de la liste et le programme va la crée.";
 
-        // Demander a l'utilisateur son mode d'entre
+        // Demander à l'utilisateur son mode d'entre
         System.out.println(demandeUtilisateur);
 
         String choix = scanner.nextLine();
         if (choix.equals("1")) {
-            System.out.println("Veuillez écrire les chiffres que vous voulez organizer et séparer par des virgules");
+            System.out.println("Veuillez écrire les chiffres que vous voulez organiser et les séparer par des virgules");
             listOr = RessourcesMethodes.ParseList(scanner.nextLine());
         }
 
         if (choix.equals("2")) {
-            System.out.println("Quelle taille de liste voulez-vous?");
+            System.out.println("Quelle est la taille de liste désirez-vous?");
             listOr = RessourcesMethodes.CreateList(scanner.nextInt());
         }
 
         RessourcesMethodes.ShowList(listOr);
 
-        System.out.println("Combien de sub list voulez-vous?");
+        System.out.println("Combien de sous-liste voulez-vous?");
         int NLIST = scanner.nextInt();
         long starttime= System.nanoTime();
         //trouve comment diviser la liste
         int count = listOr.length / NLIST;
-        //System.out.println("there will be " + count + " per list");
 
         threadList = new SortThread[NLIST];
 
@@ -50,14 +49,14 @@ class TriThreadsMain {
             threadList[i].start();
         }
 
-        //attend que tout les threads finissent
+        //attend que tous les threads finissent
         for (int i = 0; i < NLIST; i++) {
             threadList[i].join();
             threadList[i].ShowSpecialFormatArray();
         }
 
         if(NLIST != 1) {
-            //met toutes les list ensemble pour etre mis ensemble
+            //met toutes les listes ensemble
             int[][] GroupedList = new int[NLIST][];
             for (int i = 0; i < NLIST; i++) {
                 GroupedList[i] = threadList[i].getArray();
@@ -69,7 +68,7 @@ class TriThreadsMain {
         }
         else
         {
-            System.out.println("avec un seul thread, il n'est pas possible de faire un merge, fin de la tache.");
+            System.out.println("avec un seul thread, il n'est pas possible de faire une fusion, fin de la tache.");
             for(int i = 0; i<threadList[0].getArray().length; i++)
             {
                 System.out.print("[" + threadList[0].getArray()[i] + "]");
@@ -78,8 +77,8 @@ class TriThreadsMain {
         long endtime = System.nanoTime();
         long result = endtime - starttime;
         if(result > 1000000)
-            System.out.println("\nLe programmes est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
+            System.out.println("\nLe programmes est complété en millisecondes:  " + TimeUnit.NANOSECONDS.toMillis(result));
         else
-            System.out.println("\nLe programmes est complété en milliseconds:  " + String.format("%.5f",((double) result)/10000000));
+            System.out.println("\nLe programmes est complété en millisecondes:  " + String.format("%.5f",((double) result)/10000000));
     }
 }

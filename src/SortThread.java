@@ -1,4 +1,3 @@
-import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 
 public class SortThread extends java.lang.Thread {
@@ -19,12 +18,12 @@ public class SortThread extends java.lang.Thread {
         this.nom = nom;
     }
 
-    //retourne la valeur de l'array organizer
+    // Retourne la valeur de la liste organisée
     public int[] getArray() {
         return this.array;
     }
 
-    //code du prof
+    // Code du prof
     void selectionSort(int[] a) {
         for (int i = 0; i < a.length - 1; i++) {
             int min = i;
@@ -75,9 +74,9 @@ public class SortThread extends java.lang.Thread {
         long endTime = System.nanoTime();
         long result = endTime - startTime;
         if(result > 1000000)
-            System.out.println("\nSort du " + getNom() + " est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
+            System.out.println("\nTemps de tri " + getNom() + " est complété en milliseconds:  " + TimeUnit.NANOSECONDS.toMillis(result));
         else{
-            System.out.println("Sort du " + getNom() + " est complété en milliseconds: " + String.format("%.5f", ((double) result)/10000000));
+            System.out.println("\nTemps de tri " + getNom() + " est complété en milliseconds: " + String.format("%.5f", ((double) result)/10000000));
         }
     }
 }
