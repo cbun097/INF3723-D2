@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class RessourcesMethodes {
 
+    // Méthode qui lit les valeurs entrées par l'utilisateur, séparer par des virgules
     public static int[] ParseList(String list)
     {
         long startTime= System.nanoTime()/1000000;
@@ -17,10 +18,11 @@ public class RessourcesMethodes {
         }
         System.out.println();
         long endTime = System.nanoTime()/1000000;
-        System.out.println(String.format("%s %,d", "creation and display time in milliseconds:  "  ,  endTime-startTime));
+        System.out.println(String.format("%s %,d", "Création et temps en millisecondes:  "  ,  endTime-startTime));
         return arr;
     }
 
+    // Créer la liste désirée selon les valeurs alléatoires
     public static int[] CreateList(int taille)
     {
         int[] arr = new int[taille];
@@ -38,14 +40,15 @@ public class RessourcesMethodes {
         }
         System.out.println();
         long endTime = System.nanoTime()/1000000;
-        System.out.println(String.format("%s %,d", "creation and display time in milliseconds: "  ,  endTime-startTime));
+        System.out.println(String.format("%s %,d", "Création et temps en millisecondes: "  ,  endTime-startTime));
         return arr;
     }
 
+    // Affichage des listes
     public static void ShowList(int[] listOr)
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Voulez vous voir les premiere 100 entrées de la liste? (y/n) :");
+        System.out.println("Voulez-vous voir les premières 100 entrées de la liste? (y/n) :");
         String choix = scanner.nextLine();
         if (choix.equals("y")) {
             try {
@@ -73,7 +76,7 @@ public class RessourcesMethodes {
             }
             catch (ArrayIndexOutOfBoundsException | NullPointerException e)
             {
-                System.out.println("\nil n'y a plus d'entrer dans la liste");
+                System.out.println("\nIl n'y a plus d'entrée dans la liste");
             }
         }
     }
